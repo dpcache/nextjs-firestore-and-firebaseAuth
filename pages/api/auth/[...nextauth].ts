@@ -39,12 +39,14 @@ export const authOptions: AuthOptions = {
         //@ts-ignore
         session.user.id = token.sub;
         //@ts-ignore
-        session.user.role = token.role;
+        session.user.role = token.role
       }
       return session;
     },
     jwt: async ({ user, token }) => {
       if (user) {
+        //@ts-ignore 
+        token.role = user.role;
         token.uid = user.id;
       }
       return token;
