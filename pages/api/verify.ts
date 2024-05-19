@@ -22,6 +22,7 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const session = await getSession({ req });
+  console.log(session);
   if (session?.user?.name) {
     return res
       .status(200)
